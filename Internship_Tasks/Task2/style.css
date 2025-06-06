@@ -318,13 +318,14 @@ section{
     row-gap:5rem;  
 }
 .project-card{
+    height:600px;
     display:flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
     background-color: rgb(6, 6, 6);
-    border-radius: 3rem;
-    padding: 5rem 2rem;
+    border-radius: 5rem;
+    padding: 5rem 3rem;
     border:2px solid orange;
     gap:2rem;
     overflow:hidden;
@@ -340,6 +341,9 @@ section{
     max-width:200px;
     border-radius: 2em;
     object-fit:cover;
+    display:flex;
+    justify-content: Center;
+    align-items: center;
 }
 .project-card h3{
     font-size: 3rem;

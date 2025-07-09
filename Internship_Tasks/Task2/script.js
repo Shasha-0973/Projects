@@ -28,6 +28,43 @@ navs.forEach((nav, idx) => {
     });
 });
 
+const typingAnimationElement = document.getElementById('typing-animation');
+
+const typingTexts = [
+    'Front End Developer',
+    'Web Developer'
+];
+
+let currentTextIndex = 0;
+let charIndex = 0;
+let typingDelay = 150;
+let erasingDelay = 80;
+let newTextDelay = 1500; 
+function type() {
+    if (charIndex < typingTexts[currentTextIndex].length) {
+        typingAnimationElement.textContent += typingTexts[currentTextIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+    } else {
+        setTimeout(erase, newTextDelay);
+    }
+}
+
+function erase() {
+    if (charIndex > 0) {
+        typingAnimationElement.textContent = typingTexts[currentTextIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+    } else {
+        currentTextIndex++;
+        if (currentTextIndex >= typingTexts.length) currentTextIndex = 0;
+        setTimeout(type, typingDelay + 300);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() { 
+    if (typingTexts.length) setTimeout(type, newTextDelay + 250);
+});
 
 
 resumeLists.forEach((list, idx) => {
